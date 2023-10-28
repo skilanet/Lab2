@@ -36,7 +36,7 @@ mypr <- function(x, y) {
 }
 
 # Подгоняем нелинейную модель
-myfit1 <- nls(formula = y ~ (k - a * b^t), data = data, start = c(k = 184.853, a = 214.455, b = 0.965))
+myfit1 <- nls(formula = y ~ k / (1 + a * exp(b * t)), data = data, start = c(k = 170, a = 0.1, b = 0.1))
 myfit1
 r1 <- residuals(myfit1)
 plot(data$y, type = 'l')
